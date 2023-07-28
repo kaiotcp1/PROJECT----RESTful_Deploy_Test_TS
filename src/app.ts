@@ -2,7 +2,7 @@ require('dotenv').config()
 import express from 'express';
 import config from 'config';
 import db from './../config/db';
-
+const cors = require('cors');
 const app = express();
 
 // JSON middleware
@@ -11,6 +11,8 @@ app.use(express.json());
 //Middlewares
 import morganMiddleware from './middleware/morganMiddleware';
 app.use(morganMiddleware);
+
+app.use(cors());
 
 //Router
 const movieRouter = require('./routes/movieRouter');
